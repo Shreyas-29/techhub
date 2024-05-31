@@ -1,6 +1,6 @@
-#  [Your Project Name]  [![Your Startup Logo](https://path/to/your/logo.png)]
+#  [TechHub]  [![Your Startup Logo](https://path/to/your/logo.png)]
 
-This is a repository for [brief description of your project].
+Welcome to TechHub, a simple blog with all functions
 
 ## Features
 
@@ -61,8 +61,7 @@ To see more of my projects, visit my portfolio:
 
 During the development of TechHub, I gained valuable experience in:
 
-- Implementing JWT-based authentication and authorization
-- Managing and securing user data with Prisma and a chosen database (MongoDB, PostgreSQL, or MySQL)
+- Managing and securing user data with Prisma and MongoDB
 - Handling form validation and user input sanitization
 - Developing responsive web applications with TailwindCSS
 - Utilizing Next.js for dynamic and interactive user interfaces
