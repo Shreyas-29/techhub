@@ -63,7 +63,16 @@ const PostFeed = ({ initialPosts }: Props) => {
 
 
     return (
-        <div className="flex flex-col items-center justify-center w-full py-8 gap-y-4">
+        <div className="flex flex-col items-center justify-center w-full py-8 gap-y-4 px-4 md:px-0">
+
+            <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-xl text-left w-full font-semibold pb-4"
+            >
+                Featured Posts
+            </motion.h2>
 
             {posts.length === 0 && (
                 <div className="flex flex-col items-center justify-center text-center max-w-lg mx-auto absolute inset-0">
@@ -106,12 +115,52 @@ const PostFeed = ({ initialPosts }: Props) => {
                 </div>
             )}
 
-            {posts?.map((post, index) => {
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="w-full flex flex-col items-start gap-y-4"
+            >
+                {posts?.map((post, index) => {
 
-                if (index === posts.length - 1) {
+                    if (index === posts.length - 1) {
+                        return (
+                            <Link
+                                ref={ref}
+                                key={post.id}
+                                href={`/post/${post.id}`}
+                                className="flex flex-col relative items-start w-full border border-border rounded-lg"
+                            >
+                                <div className="flex items-center justify-between w-full">
+                                    <Image
+                                        src={post.images?.[0]?.url!}
+                                        alt={post.author.name!}
+                                        width={2024}
+                                        height={2024}
+                                        placeholder="blur"
+                                        blurDataURL="https://res.cloudinary.com/ddd2iwvzw/image/upload/"
+                                        className="object-cover h-40 w-full rounded-t-lg"
+                                    />
+                                </div>
+                                <span className="text-sm text-muted-foreground px-4 pt-4">
+                                    {moment(post.createdAt).fromNow()} {" "} • {" "} {post.author.name} {" "} • {" "} 1 min read
+                                </span>
+                                <h1 className="text-xl font-medium mt-2 px-4">
+                                    {post.title.charAt(0).toUpperCase() + post.title.slice(1)}
+                                </h1>
+                                <p className="text-base text-muted-foreground px-4 pt-2">
+                                    {post.content.length > 60 ? post.content.slice(0, 60) + "..." : post.content}
+                                </p>
+                                <Button size="sm" variant="ghost" className="mx-4 mb-2 hover:bg-transparent px-0">
+                                    Read More
+                                    <ArrowRight className="w-4 h-4 ml-2" />
+                                </Button>
+                            </Link>
+                        )
+                    }
+
                     return (
                         <Link
-                            ref={ref}
                             key={post.id}
                             href={`/post/${post.id}`}
                             className="flex flex-col relative items-start w-full border border-border rounded-lg"
@@ -122,8 +171,8 @@ const PostFeed = ({ initialPosts }: Props) => {
                                     alt={post.author.name!}
                                     width={2024}
                                     height={2024}
-                                    quality={100}
-                                    priority
+                                    placeholder="blur"
+                                    blurDataURL="https://res.cloudinary.com/ddd2iwvzw/image/upload/"
                                     className="object-cover h-40 w-full rounded-t-lg"
                                 />
                             </div>
@@ -142,44 +191,8 @@ const PostFeed = ({ initialPosts }: Props) => {
                             </Button>
                         </Link>
                     )
-                }
-
-                return (
-                    <MotionLink
-                        key={post.id}
-                        href={`/post/${post.id}`}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="flex flex-col relative items-start w-full border border-border rounded-lg"
-                    >
-                        <div className="flex items-center justify-between w-full">
-                            <Image
-                                src={post.images?.[0]?.url!}
-                                alt={post.author.name!}
-                                width={2024}
-                                height={2024}
-                                quality={100}
-                                priority
-                                className="object-cover h-40 w-full rounded-t-lg"
-                            />
-                        </div>
-                        <span className="text-sm text-muted-foreground px-4 pt-4">
-                            {moment(post.createdAt).fromNow()} {" "} • {" "} {post.author.name} {" "} • {" "} 1 min read
-                        </span>
-                        <h1 className="text-xl font-medium mt-2 px-4">
-                            {post.title.charAt(0).toUpperCase() + post.title.slice(1)}
-                        </h1>
-                        <p className="text-base text-muted-foreground px-4 pt-2">
-                            {post.content.length > 60 ? post.content.slice(0, 60) + "..." : post.content}
-                        </p>
-                        <Button size="sm" variant="ghost" className="mx-4 mb-2 hover:bg-transparent px-0">
-                            Read More
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                        </Button>
-                    </MotionLink>
-                )
-            })}
+                })}
+            </motion.div>
 
             {isFetchingNextPage ? (
                 <motion.div

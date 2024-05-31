@@ -53,7 +53,7 @@ const PostContent = ({ post }: Props) => {
     });
 
     return (
-        <div className="flex flex-col items-center w-full max-w-2xl mx-auto py-8">
+        <div className="flex flex-col items-center w-full max-w-2xl mx-auto py-8 px-4 md:px-0">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -101,6 +101,8 @@ const PostContent = ({ post }: Props) => {
                     width={400}
                     height={400}
                     layout="responsive"
+                    placeholder="blur"
+                    blurDataURL="https://res.cloudinary.com/ddd2iwvzw/image/upload/"
                     className="object-cover max-h-96 w-full rounded-lg border border-border"
                 />
             </motion.div>
@@ -128,7 +130,7 @@ const PostContent = ({ post }: Props) => {
                         Learn more about the world and how you can make a difference in your community. We are here to help you grow and learn more about the world around you.
                     </p>
                     <Button size="sm" className="mt-6">
-                        <Link href="https://shreyas-sihasane.vercel.app" target="_blank" rel="noopener noreferrer">
+                        <Link href="https://shreyas-sihasane.vercel.app/blog" target="_blank" rel="noopener noreferrer">
                             Explore
                         </Link>
                     </Button>

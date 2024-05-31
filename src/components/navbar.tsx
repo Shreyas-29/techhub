@@ -5,6 +5,7 @@ import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
+import Icons from "./icons";
 
 interface Props {
     user: User | null;
@@ -18,12 +19,10 @@ const Navbar = ({ user }: Props) => {
             transition={{ duration: 0.5, type: "spring", stiffness: 120 }}
             className="sticky z-50 top-0 inset-x-0 w-full px-4 md:px-10 h-14 bg-white/40 backdrop-blur-lg border-b border-border"
         >
-            <div className="flex items-center justify-between w-full h-full">
+            <div className="flex items-center justify-between w-full h-full md:max-w-screen-xl mx-auto">
                 <div className="flex items-center space-x-4">
                     <Link href="/">
-                        <span className="text-xl font-bold text-primary select-none">
-                            TechHub
-                        </span>
+                        <Icons.logo className="w-8 h-8" />
                     </Link>
                     <nav className="hidden md:flex items-center space-x-4 pl-12">
                         <Button size="sm" variant="ghost" className="text-neutral-600">
