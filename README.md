@@ -1,4 +1,7 @@
-#  [TechHub]  [![Your Startup Logo](https://path/to/your/logo.png)]
+<img src="https://github.com/Shreyas-29/techhub/assets/111555846/fb510987-2ea5-47b9-ac66-4ffddc098508" alt="TechHub" width="50px" />
+
+# TechHub
+
 
 Welcome to TechHub, a simple blog with all functions
 
