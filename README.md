@@ -25,7 +25,7 @@ These are the steps to get started with the project:
 1. **Clone the repository:**
 
 ```bash
-git clone [https://github.com/](https://github.com/)[your-username]/[your-project-name].git
+git clone [https://github.com/Shreyas-29/techhub.git](https://github.com/Shreyas-29/techhub.git)
 ```
 
 2. **Install dependencies:**
@@ -53,6 +53,9 @@ yarn dev
 ## Demo
 
 A video demonstration of the project's functionalities can be found here:
+
+
+https://github.com/Shreyas-29/techhub/assets/111555846/074de528-3be8-4f27-9d07-e2684f33d26b
 
 
 ## Portfolio
